@@ -1,0 +1,36 @@
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+
+        /*Stack<Integer> stack = new Stack<>();
+        int [] arr = new int [temperatures.length];
+
+        for(int i = 0; i < temperatures.length; i++){
+            
+
+            while((!stack.empty()) && temperatures[i] > temperatures[stack.peek()]){
+                int prevIndex = stack.pop();
+                arr[prevIndex] = i - prevIndex;
+            }
+
+            stack.push(i);
+        }
+
+        return arr;*/
+
+        int [] arr = new int [temperatures.length];
+        
+        for(int i = 0; i < temperatures.length; i++){
+            for(int j = i; j < temperatures.length; j++){
+                if(temperatures[j] > temperatures[i] && i != j){
+                    int diff = j - i;
+                    arr[i] = diff;
+                    break;
+                }
+                
+            }
+        }
+
+        return arr;
+        
+    }
+}
